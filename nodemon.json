@@ -1,0 +1,9 @@
+{
+  "ext": "js jsx",
+  "ignore": [
+    "lib",
+    "dist",
+    "src/client"
+  ],
+  "exec": "babel-node src/server"
+}

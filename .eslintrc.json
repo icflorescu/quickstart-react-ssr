@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "airbnb"
+  ],
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "semi": "error",
+    "no-unexpected-multiline": "error",
+    "comma-dangle": [
+      "warn",
+      {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "eqeqeq": "off"
+  }
+}

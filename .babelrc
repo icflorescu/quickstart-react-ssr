@@ -1,0 +1,12 @@
+{
+  "ignore": [
+    "src/client"
+  ],
+  "presets": [
+    ["env", {"targets": { "node": true } }],
+    "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
+  ]
+}
