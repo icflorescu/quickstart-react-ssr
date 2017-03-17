@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import socketIOClient from 'socket.io-client';
 
 import {

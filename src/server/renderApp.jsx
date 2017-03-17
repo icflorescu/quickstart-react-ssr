@@ -7,9 +7,10 @@ import { StaticRouter } from 'react-router';
 import initStore from './initStore';
 import App from './../shared/App';
 import { APP_CONTAINER_CLASS, STATIC_PATH } from '../shared/config';
-import { isProd, html } from '../shared/util';
+import { isProd } from '../shared/util';
+import { html } from './util';
 
-export default (location, preloadedState, routerContext = {}) => {
+export default (location, preloadedState = {}, routerContext = {}) => {
   const store = initStore(preloadedState);
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={store}>
@@ -32,7 +33,7 @@ export default (location, preloadedState, routerContext = {}) => {
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState())}
         </script>
-        <script src="${isProd ? STATIC_PATH : '/dist'}/js/bundle.js"></script>
+        <script src="${isProd ? STATIC_PATH : '/dist'}/js/index.js${isProd ? '.gz' : ''}"></script>
       </body>
     </html>`
   );

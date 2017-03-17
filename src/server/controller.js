@@ -1,23 +1,15 @@
-import initialState from '../shared/initialState';
-
-export const homePage = () => ({});
+export const homePage = () => {};
 
 export const helloPage = () => ({
-  ...initialState,
   hello: {
-    ...initialState.hello,
-    message: 'Server-side preloaded message'
+    message: 'preloaded from server'
   }
 });
 
 export const helloAsyncPage = () => ({
-  ...initialState,
   hello: {
-    ...initialState.hello,
-    messageAsync: 'Server-side preloaded async message'
+    messageAsync: 'preloaded from server'
   }
 });
 
-export const helloAPI = num => ({
-  serverMessage: `Hello from the server! (received ${num})`
-});
+export const helloAPI = num => `Hello from the server! (received ${num})`;

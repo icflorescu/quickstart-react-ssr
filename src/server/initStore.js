@@ -1,10 +1,5 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import { createStore } from 'redux';
 
-import hello from '../shared/reducer/hello';
+import reducers from '../shared/reducers';
 
-export default preloadedState => createStore(
-  combineReducers({ hello }),
-  preloadedState,
-  applyMiddleware(thunkMiddleware)
-);
+export default preloadedState => createStore(reducers, preloadedState);

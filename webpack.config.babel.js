@@ -16,7 +16,7 @@ const proxy = {
   }
 };
 
-const entry = ['./src/client'];
+const entry = { index: ['./src/client'] };
 const plugins = [new webpack.optimize.OccurrenceOrderPlugin()];
 let devtool = false;
 
@@ -26,7 +26,7 @@ if (isProd) {
     new webpack.optimize.UglifyJsPlugin({ output: { comments: false } })
   );
 } else {
-  entry.unshift('react-hot-loader/patch');
+  entry.index.unshift('react-hot-loader/patch');
   plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
@@ -38,7 +38,7 @@ if (isProd) {
 export default {
   entry,
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist/js'),
     publicPath: '/dist/js/'
   },

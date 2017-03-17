@@ -1,30 +1,13 @@
 import 'isomorphic-fetch';
-
 import { createAction } from 'redux-actions';
 import { API_HELLO } from '../../shared/routes';
 
 export const SAY_HELLO = 'SAY_HELLO';
-export const SAY_HELLO_ASYNC_REQUEST = 'SAY_HELLO_ASYNC_REQUEST';
-export const SAY_HELLO_ASYNC_SUCCESS = 'SAY_HELLO_ASYNC_SUCCESS';
-export const SAY_HELLO_ASYNC_FAILURE = 'SAY_HELLO_ASYNC_FAILURE';
+export const SAY_HELLO_ASYNC = 'SAY_HELLO_ASYNC';
 
 export const sayHello = createAction(SAY_HELLO);
-export const sayHelloAsyncRequest = createAction(SAY_HELLO_ASYNC_REQUEST);
-export const sayHelloAsyncSuccess = createAction(SAY_HELLO_ASYNC_SUCCESS);
-export const sayHelloAsyncFailure = createAction(SAY_HELLO_ASYNC_FAILURE);
 
-export const sayHelloAsync = num => (dispatch) => {
-  dispatch(sayHelloAsyncRequest());
-  return fetch(`${API_HELLO}/${num}`, { method: 'GET' })
-    .then((res) => {
-      if (!res.ok) throw Error(res.statusText);
-      return res.json();
-    })
-    .then((data) => {
-      if (!data.serverMessage) throw Error('No message received');
-      dispatch(sayHelloAsyncSuccess(data.serverMessage));
-    })
-    .catch(() => {
-      dispatch(sayHelloAsyncFailure());
-    });
-};
+export const sayHelloAsync = createAction(
+  SAY_HELLO_ASYNC,
+  num => fetch(`${API_HELLO}/${num}`).then(r => r.json())
+);

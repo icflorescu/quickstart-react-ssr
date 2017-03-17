@@ -4,6 +4,7 @@ import { Server } from 'http';
 import socketIO from 'socket.io';
 
 import { WEB_PORT, WDS_PORT, STATIC_PATH } from '../shared/config';
+import staticOptions from './staticOptions';
 import { isProd } from '../shared/util';
 import setupRoutes from './setupRoutes';
 import setupSocket from './setupSocket';
@@ -12,10 +13,10 @@ const app = express();
 const server = Server(app);
 setupSocket(socketIO(server));
 
-app.use(compression());
-app.use(STATIC_PATH, express.static('dist'));
-app.use(STATIC_PATH, express.static('public'));
+app.use(STATIC_PATH, express.static('dist', staticOptions));
+app.use(STATIC_PATH, express.static('public', staticOptions));
 
+app.use(compression());
 setupRoutes(app);
 
 server.listen(WEB_PORT, () => {
