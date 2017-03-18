@@ -6,14 +6,13 @@ import {
   IO_SERVER_HELLO
 } from '../shared/config';
 
-/* eslint-disable no-console */
-const setUpSocket = (io) => {
+export default (io) => {
   io.on(IO_CONNECT, (socket) => {
-    console.log('[socket.io] A client connected.');
+    console.log('[socket.io] A client connected.'); // eslint-disable-line no-console
 
     socket.on(IO_CLIENT_JOIN_ROOM, (room) => {
       socket.join(room);
-      console.log(`[socket.io] A client joined room ${room}.`);
+      console.log(`[socket.io] A client joined room ${room}.`); // eslint-disable-line no-console
 
       io.emit(IO_SERVER_HELLO, 'Hello everyone!');
       io.to(room).emit(IO_SERVER_HELLO, `Hello clients of room ${room}!`);
@@ -21,14 +20,11 @@ const setUpSocket = (io) => {
     });
 
     socket.on(IO_CLIENT_HELLO, (clientMessage) => {
-      console.log(`[socket.io] Client: ${clientMessage}`);
+      console.log(`[socket.io] Client: ${clientMessage}`); // eslint-disable-line no-console
     });
 
     socket.on(IO_DISCONNECT, () => {
-      console.log('[socket.io] A client disconnected.');
+      console.log('[socket.io] A client disconnected.'); // eslint-disable-line no-console
     });
   });
 };
-/* eslint-enable no-console */
-
-export default setUpSocket;

@@ -1,6 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-export const html = (strings, ...keys) => {
+export const html = (strings, ...keys) => { // eslint-disable-line import/prefer-default-export
   strings.forEach(item => item.replace(/\n\s*/g, ''));
   return String.raw(strings, ...keys);
 };
-/* eslint-enable import/prefer-default-export */
