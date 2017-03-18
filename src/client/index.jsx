@@ -1,6 +1,7 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
 import 'babel-polyfill';
-
+import 'whatwg-fetch';
+/* eslint-enable import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -15,10 +16,10 @@ import { APP_CONTAINER_SELECTOR } from '../shared/config';
 import { isProd } from '../shared/util';
 import setupSocket from './setupSocket';
 
-/* eslint-disable no-undef, no-underscore-dangle */
+/* eslint-disable no-underscore-dangle */
 const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const preloadedState = window.__PRELOADED_STATE__;
-/* eslint-enable no-undef, no-underscore-dangle */
+/* eslint-enable no-underscore-dangle */
 
 const store = createStore(
   reducers,

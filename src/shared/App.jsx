@@ -3,11 +3,11 @@ import Helmet from 'react-helmet';
 import { Switch } from 'react-router';
 import { Route } from 'react-router-dom';
 import { APP_NAME } from './config';
-import Nav from './component/Nav';
-import HomePage from './component/page/Home';
-import HelloPage from './component/page/Hello';
-import HelloAsyncPage from './component/page/HelloAsync';
-import NotFoundPage from './component/page/NotFound';
+import Nav from './components/Nav';
+import HomePage from './components/pages/Home';
+import HelloPage from './components/pages/Hello';
+import HelloAsyncPage from './components/pages/HelloAsync';
+import NotFoundPage from './components/pages/NotFound';
 import {
   HOME,
   HELLO,

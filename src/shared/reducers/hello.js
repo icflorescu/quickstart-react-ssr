@@ -1,7 +1,7 @@
 import {
   SAY_HELLO,
   SAY_HELLO_ASYNC
-} from '../action/hello';
+} from '../actions/hello';
 
 export default (state = {}, { type, payload }) => {
   switch (type) {

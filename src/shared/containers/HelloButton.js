@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import { sayHello } from '../action/hello';
-import Button from '../component/Button';
+import { sayHello } from '../actions/hello';
+import Button from '../components/Button';
 
 export default connect(() => ({
   label: 'Say hello'

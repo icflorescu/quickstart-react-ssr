@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import HelloButton from '../../container/HelloButton';
-import Message from '../../container/Message';
+import HelloButton from '../../containers/HelloButton';
+import Message from '../../containers/Message';
 
 const title = 'Hello Page';
 

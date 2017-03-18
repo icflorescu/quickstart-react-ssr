@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import HelloAsyncButton from '../../container/HelloAsyncButton';
-import MessageAsync from '../../container/MessageAsync';
+import HelloAsyncButton from '../../containers/HelloAsyncButton';
+import MessageAsync from '../../containers/MessageAsync';
 
 const title = 'Async Hello Page';
 
