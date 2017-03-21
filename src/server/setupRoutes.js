@@ -39,10 +39,8 @@ export default (app) => {
     res.status(404).send(renderApp(req.url));
   });
 
-  // eslint-disable-next-line no-unused-vars
-  app.use((err, req, res, next) => {
-    // eslint-disable-next-line no-console
-    console.error(err.stack);
+  app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+    console.error(err.stack); // eslint-disable-line no-console
     res.status(500).send('Something went wrong!');
   });
 };

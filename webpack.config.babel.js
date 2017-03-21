@@ -9,14 +9,16 @@ const proxy = {
     target: `http://localhost:${WEB_PORT}`,
     logLevel: 'silent',
     onError: (err, req, res) => {
-      // eslint-disable-next-line no-console
-      console.log('Server not ready, retrying in one second...');
+      console.log('Server not ready, retrying in one second...'); // eslint-disable-line no-console
       setTimeout(() => { res.redirect(req.path); }, 1000);
     }
   }
 };
 
-const entry = { index: ['./src/client'] };
+const entry = {
+  index: ['./src/client/polyfills', './src/client']
+};
+
 const plugins = [new webpack.optimize.OccurrenceOrderPlugin()];
 let devtool = false;
 
@@ -26,7 +28,8 @@ if (isProd) {
     new webpack.optimize.UglifyJsPlugin({ output: { comments: false } })
   );
 } else {
-  entry.index.unshift('react-hot-loader/patch');
+  // Add react-hot-loader/patch after polyfills
+  entry.index.splice(entry.index.length - 1, 0, 'react-hot-loader/patch');
   plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),

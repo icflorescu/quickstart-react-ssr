@@ -23,6 +23,5 @@ server.listen(WEB_PORT, () => {
   const msgSuffix = isProd
     ? '(production)'
     : `(development).\nRun "yarn start:wds" running in another terminal and point your browser to port ${WDS_PORT}.`;
-  // eslint-disable-next-line no-console
-  console.log(`Server running on port ${WEB_PORT} ${msgSuffix}`);
+  console.log(`Server running on port ${WEB_PORT} ${msgSuffix}`); // eslint-disable-line no-console
 });

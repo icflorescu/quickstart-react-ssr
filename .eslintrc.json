@@ -19,6 +19,8 @@
         "functions": "never"
       }
     ],
-    "eqeqeq": "off"
+    "eqeqeq": "off",
+    "global-require": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import socketIOClient from 'socket.io-client';
 
 import {
@@ -12,21 +11,18 @@ import {
 
 const socket = socketIOClient(`${location.hostname}:${WEB_PORT}`);
 
-/* eslint-disable no-console */
-// eslint-disable-next-line no-unused-vars
-export default (store) => {
+export default (store) => { // eslint-disable-line no-unused-vars
   socket.on(IO_CONNECT, () => {
-    console.log('[socket.io] Connected.');
+    console.log('[socket.io] Connected.'); // eslint-disable-line no-console
     socket.emit(IO_CLIENT_JOIN_ROOM, 'hello-1234');
     socket.emit(IO_CLIENT_HELLO, 'Hello!');
   });
 
   socket.on(IO_SERVER_HELLO, (serverMessage) => {
-    console.log(`[socket.io] Server: ${serverMessage}`);
+    console.log(`[socket.io] Server: ${serverMessage}`); // eslint-disable-line no-console
   });
 
   socket.on(IO_DISCONNECT, () => {
-    console.log('[socket.io] Disconnected.');
+    console.log('[socket.io] Disconnected.'); // eslint-disable-line no-console
   });
 };
-/* eslint-enable no-console */
