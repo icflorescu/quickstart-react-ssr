@@ -18,7 +18,7 @@ export default (location, preloadedState = {}, routerContext = {}) => {
         <App />
       </StaticRouter>
     </Provider>);
-  const head = Helmet.rewind();
+  const head = Helmet.renderStatic();
 
   return (html`
     <!doctype html>
