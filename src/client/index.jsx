@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
-import promiseMiddleware from 'redux-promise-middleware';
+import thunk from 'redux-thunk';
 
 import App from '../shared/App';
 import reducers from '../shared/reducers';
@@ -20,7 +20,7 @@ const composeEnhancers = (
 const store = createStore(
   reducers,
   window.__PRELOADED_STATE__, // eslint-disable-line no-underscore-dangle
-  composeEnhancers(applyMiddleware(promiseMiddleware()))
+  composeEnhancers(applyMiddleware(thunk))
 );
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR);
