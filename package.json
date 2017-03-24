@@ -6,9 +6,12 @@
   "scripts": {
     "start:dev": "nodemon",
     "start:wds": "webpack-dev-server --progress",
-    "build": "rimraf lib dist && babel src -d lib && cross-env NODE_ENV=production webpack --progress && gzip -9 -q dist/**/*",
-    "start:prod": "yarn build && cross-env NODE_ENV=production pm2 start lib/server --name dev && pm2 monit",
-    "stop:prod": "pm2 stop dev && pm2 delete dev",
+    "build:server": "rimraf lib && babel src -d lib",
+    "build:client": "rimraf dist && cross-env NODE_ENV=production webpack --progress && gzip -9 -q dist/**/*",
+    "build": "yarn build:server && yarn build:client",
+    "start": "yarn build && cross-env NODE_ENV=production pm2 start lib/server --name app",
+    "stop": "pm2 stop app && pm2 delete app",
+    "monit": "pm2 monit",
     "test": "eslint src webpack.config.babel.js --ext .js,.jsx",
     "precommit": "yarn test",
     "prepush": "yarn build"
