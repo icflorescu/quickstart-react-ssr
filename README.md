@@ -1,5 +1,7 @@
 # Another Universal React Application Quickstart
 
+![react-logo](https://cloud.githubusercontent.com/assets/581999/26373150/15bd4088-4009-11e7-88ce-7c0ce866ea3d.PNG)
+
 ## What's this
 
 This is my own contribution to the [JS-fatigue](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4).
