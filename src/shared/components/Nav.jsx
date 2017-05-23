@@ -19,9 +19,10 @@ const renderLink = link => (
   </li>
 );
 
-export default () =>
+export default () => (
   <nav>
     <ul>
       {links.map(renderLink)}
     </ul>
-  </nav>;
+  </nav>
+);

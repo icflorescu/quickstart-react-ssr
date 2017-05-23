@@ -6,7 +6,7 @@ import MessageAsync from '../../containers/MessageAsync';
 
 const title = 'Async Hello Page';
 
-export default () =>
+export default () => (
   <div>
     <Helmet>
       <title>{title}</title>
@@ -17,4 +17,5 @@ export default () =>
     <h1>{title}</h1>
     <MessageAsync />
     <HelloAsyncButton />
-  </div>;
+  </div>
+);

@@ -14,7 +14,7 @@ import {
   HELLO_ASYNC
 } from './routes';
 
-export default () =>
+export default () => (
   <div>
     <Helmet titleTemplate={`%s | ${APP_NAME}`} defaultTitle={APP_NAME} />
     <Nav />
@@ -24,4 +24,5 @@ export default () =>
       <Route path={HELLO_ASYNC} render={() => <HelloAsyncPage />} />
       <Route component={NotFoundPage} />
     </Switch>
-  </div>;
+  </div>
+);

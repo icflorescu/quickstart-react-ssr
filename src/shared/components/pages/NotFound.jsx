@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 const title = 'Page Not Found';
 
-export default () =>
+export default () => (
   <div>
     <Helmet>
       <title>{title}</title>
@@ -11,4 +11,5 @@ export default () =>
       <meta name="description" content="Page not found" />
     </Helmet>
     <h1>{title}</h1>
-  </div>;
+  </div>
+);

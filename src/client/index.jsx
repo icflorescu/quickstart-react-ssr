@@ -9,17 +9,20 @@ import App from '../shared/App';
 import reducers from '../shared/reducers';
 import { APP_CONTAINER_SELECTOR } from '../shared/config';
 import { isProd } from '../shared/util';
-import setupSocket from './setupSocket';
+
+import './index.styl';
 
 const composeEnhancers = (
   isProd
     ? null
-    : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ // eslint-disable-line no-underscore-dangle
+    // eslint-disable-next-line no-underscore-dangle
+    : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 ) || compose;
 
 const store = createStore(
   reducers,
-  window.__PRELOADED_STATE__, // eslint-disable-line no-underscore-dangle
+  // eslint-disable-next-line no-underscore-dangle
+  window.__PRELOADED_STATE__,
   composeEnhancers(applyMiddleware(thunk))
 );
 
@@ -30,6 +33,7 @@ const wrapApp = (AppComponent, reduxStore) => {
   if (isProd) {
     content = <AppComponent />;
   } else {
+    // eslint-disable-next-line global-require
     const AppContainer = require('react-hot-loader/lib/AppContainer');
     content = (
       <AppContainer>
@@ -48,8 +52,7 @@ render(wrapApp(App, store), rootEl);
 
 if (!isProd && module.hot) {
   module.hot.accept('../shared/App', () => {
+    // eslint-disable-next-line global-require
     render(wrapApp(require('../shared/App').default, store), rootEl);
   });
 }
-
-setupSocket(store);

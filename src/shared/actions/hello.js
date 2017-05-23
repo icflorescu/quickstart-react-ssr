@@ -10,9 +10,12 @@ import {
 
 export const sayHello = payload => ({ type: SAY_HELLO, payload });
 
-export const sayHelloAsync = payload => (dispatch) => {
+export const sayHelloAsync = payload => async (dispatch) => {
   dispatch({ type: SAY_HELLO_ASYNC_START });
-  fetchJSON(`${API_HELLO}/${payload}`)
-    .then(data => dispatch({ type: SAY_HELLO_ASYNC_DONE, payload: data }))
-    .catch(err => dispatch({ type: SAY_HELLO_ASYNC_ERROR, payload: err }));
+  try {
+    const data = await fetchJSON(`${API_HELLO}/${payload}`);
+    dispatch({ type: SAY_HELLO_ASYNC_DONE, payload: data });
+  } catch (err) {
+    dispatch({ type: SAY_HELLO_ASYNC_ERROR, payload: err });
+  }
 };

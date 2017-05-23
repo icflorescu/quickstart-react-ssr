@@ -6,7 +6,7 @@ import Message from '../../containers/Message';
 
 const title = 'Hello Page';
 
-export default () =>
+export default () => (
   <div>
     <Helmet>
       <title>{title}</title>
@@ -16,4 +16,5 @@ export default () =>
     <h1>{title}</h1>
     <Message />
     <HelloButton />
-  </div>;
+  </div>
+);
